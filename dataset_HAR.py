@@ -13,10 +13,21 @@ O_FILES = [
 datasets = [[],[],[],[]]
 count = 0
 
+
+need_idx = range(1, 562)
+# for idx in need_idx:
+#     print(idx)
+
 for filename in F_FILES:
     f = open(filename, "r")
     for line in f:
-        datasets[count].append([float(number) for number in line.split()])
+        numbers = []
+        number_idx = 1
+        for number in line.split():
+            if number_idx in need_idx:
+                numbers.append(float(number))
+            number_idx += 1            
+        datasets[count].append(numbers)
     count += 1
     f.close()
 
@@ -32,3 +43,8 @@ X_test = np.array(datasets[1], dtype=np.float32)
 
 y_train = np.array(datasets[2], dtype=np.int32)
 y_test = np.array(datasets[3], dtype=np.int32)
+
+print(X_train.shape)
+print(X_test.shape)
+
+print(X_train)
