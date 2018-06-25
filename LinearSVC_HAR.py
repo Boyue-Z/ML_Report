@@ -28,6 +28,12 @@ need_idx.append(56)
 need_idx.extend(range(60, 66))
 need_idx.extend(range(78, 81))
 
+need_idx.extend(range(282, 285))
+need_idx.extend(range(288, 291))
+
+need_idx.extend(range(440, 443))
+need_idx.extend(range(446, 449))
+
 print(len(need_idx))
 for idx in need_idx:
     print(idx)
@@ -66,5 +72,5 @@ linear_svm = LinearSVC(dual=False).fit(X_train, y_train)
 print("Training score: {:.3f}".format(linear_svm.score(X_train, y_train)))
 print("Testing score: {:.3f}".format(linear_svm.score(X_test, y_test)))
 
-print(linear_svm.coef_)
-print(linear_svm.intercept_)
+# print(linear_svm.coef_)
+# print(linear_svm.intercept_)

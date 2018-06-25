@@ -14,7 +14,7 @@ datasets = [[],[],[],[]]
 count = 0
 
 
-need_idx = range(1, 562)
+need_idx = list(range(1, 562))
 # for idx in need_idx:
 #     print(idx)
 
@@ -48,3 +48,21 @@ print(X_train.shape)
 print(X_test.shape)
 
 print(X_train)
+
+# Time Domain
+# need_idx = list(range(1, 10))
+# need_idx.append(16)
+# need_idx.extend(range(20, 26))
+# need_idx.extend(range(38, 41))
+
+# need_idx.extend(range(41, 50))
+# need_idx.append(56)
+# need_idx.extend(range(60, 66))
+# need_idx.extend(range(78, 81))
+
+# Freq Domain
+# need_idx.extend(range(282, 285))
+# need_idx.extend(range(288, 291))
+
+# need_idx.extend(range(440, 443))
+# need_idx.extend(range(446, 449))
