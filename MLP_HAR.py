@@ -15,12 +15,7 @@ O_FILES = [
 datasets = [[],[],[],[]]
 count = 0
 
-
-# need_idx = range(1, 562)
-# for idx in need_idx:
-#     print(idx)
-
-
+# Time Domain
 need_idx = list(range(1, 10))
 need_idx.append(16)
 need_idx.extend(range(20, 26))
@@ -31,11 +26,19 @@ need_idx.append(56)
 need_idx.extend(range(60, 66))
 need_idx.extend(range(78, 81))
 
+
+# Freq Domain
 need_idx.extend(range(282, 285))
 need_idx.extend(range(288, 291))
 
 need_idx.extend(range(440, 443))
 need_idx.extend(range(446, 449))
+
+print(len(need_idx))
+
+for idx in need_idx:
+    print(idx)
+
 
 
 for filename in F_FILES:
@@ -74,11 +77,11 @@ print(X_test.shape)
 
 # Test 2 logistic + adam
 # mlp = MLPClassifier(hidden_layer_sizes=(100, ), max_iter=100, alpha=1e-4,
-#                     activation = 'logistic', solver='adam', verbose=10, tol=1e-4, random_state=1)
+#                     activation = 'logistic', solver='adam', verbose=10, tol=1e-5, random_state=1)
 
 # Test 3 ReLU + SGD
-mlp = MLPClassifier(hidden_layer_sizes=(100, ), max_iter=10000, alpha=1e-4,
-                     solver='sgd', verbose=10, tol=1e-4, random_state=1)
+mlp = MLPClassifier(hidden_layer_sizes=(100, ), max_iter=500, alpha=1e-4,
+                    solver='sgd', verbose=10, tol=1e-6, random_state=1)
 
 mlp.fit(X_train, y_train)
 print("Training set score: %f" % mlp.score(X_train, y_train))

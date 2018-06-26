@@ -44,10 +44,17 @@ X_test = np.array(datasets[1], dtype=np.float32)
 y_train = np.array(datasets[2], dtype=np.int32)
 y_test = np.array(datasets[3], dtype=np.int32)
 
+test = np.delete(X_train, range(1,562), axis=1)
+
+print(test.shape)
+# print(test)
+
 print(X_train.shape)
 print(X_test.shape)
 
-print(X_train)
+# print(X_train)
+
+
 
 # Time Domain
 # need_idx = list(range(1, 10))

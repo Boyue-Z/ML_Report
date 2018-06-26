@@ -1,6 +1,4 @@
 import numpy as np
-from sklearn.svm import LinearSVC
-import numpy as np
 
 # features
 F_FILES = [
@@ -16,29 +14,9 @@ datasets = [[],[],[],[]]
 count = 0
 
 
-# Time Domain
-need_idx = list(range(1, 10))
-need_idx.append(16)
-need_idx.extend(range(20, 26))
-need_idx.extend(range(38, 41))
-
-need_idx.extend(range(41, 50))
-need_idx.append(56)
-need_idx.extend(range(60, 66))
-need_idx.extend(range(78, 81))
-
-
-# Freq Domain
-need_idx.extend(range(282, 285))
-need_idx.extend(range(288, 291))
-
-need_idx.extend(range(440, 443))
-need_idx.extend(range(446, 449))
-
-print(len(need_idx))
-
-for idx in need_idx:
-    print(idx)
+need_idx = list(range(1, 562))
+# for idx in need_idx:
+#     print(idx)
 
 for filename in F_FILES:
     f = open(filename, "r")
@@ -66,13 +44,15 @@ X_test = np.array(datasets[1], dtype=np.float32)
 y_train = np.array(datasets[2], dtype=np.int32)
 y_test = np.array(datasets[3], dtype=np.int32)
 
+
+for idx in range(1, 563):
+    test = np.delete(X_train, range(idx,562), axis=1)
+    print(test.shape)
+
+print(test)
+
 print(X_train.shape)
 print(X_test.shape)
 
+# print(X_train)
 
-linear_svm = LinearSVC().fit(X_train, y_train)
-print("Training score: {:.3f}".format(linear_svm.score(X_train, y_train)))
-print("Testing score: {:.3f}".format(linear_svm.score(X_test, y_test)))
-
-# print(linear_svm.coef_)
-# print(linear_svm.intercept_)
